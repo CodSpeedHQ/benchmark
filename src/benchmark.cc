@@ -651,6 +651,11 @@ size_t RunSpecifiedBenchmarks(BenchmarkReporter* display_reporter,
     return 0;
   }
 
+  // Print all benchmarks
+  for (auto const& benchmark : benchmarks) {
+    Out << "Running" << benchmark.name().str() << "\n";
+  }
+
   if (benchmarks.empty()) {
     Err << "Failed to match any benchmarks against regex: " << spec << "\n";
     Out.flush();
